@@ -5,8 +5,15 @@ class Chronometer {
   }
 
   startClick(callback) {
-    const incrementFunction = () => { this.currentTime+=1 }
-    this.intervalId = setInterval(incrementFunction, 1);
+    // console.log('Clicked');
+    // console.log(callback);
+    const incrementFunction = () => { 
+      this.currentTime+=10;
+      callback(); 
+    };
+    // this.intervalId = setInterval(incrementFunction(callback), 1);
+
+    this.intervalId = setInterval(incrementFunction, 10);
   }
 
   getMinutes() {

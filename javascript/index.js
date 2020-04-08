@@ -13,8 +13,6 @@ let milDec = document.getElementById('milDec');
 let milUni = document.getElementById('milUni');
 let splits = document.getElementById('splits');
 
-setInterval(printTime, 1);
-
 function printTime() {
   printMinutes();
   printSeconds();
@@ -27,8 +25,12 @@ function printMinutes() {
 }
 
 function printSeconds() {
+  // console.log("Print seconds")
+  // console.log(secUni);
+  // console.log(chronometer.getSeconds());
   secDec.innerHTML = chronometer.twoDigitsNumber(chronometer.getSeconds())[0];
   secUni.innerHTML = chronometer.twoDigitsNumber(chronometer.getSeconds())[1];
+  // console.log(secUni);
 }
 
 // ==> BONUS
@@ -79,7 +81,7 @@ btnLeft.addEventListener('click', () => {
   if (btnLeft.getAttribute("class") === 'btn start') {
     setStopBtn();
     setSplitBtn();
-    chronometer.startClick();
+    chronometer.startClick(printTime);
   } else {
     setStartBtn()
     setResetBtn();
